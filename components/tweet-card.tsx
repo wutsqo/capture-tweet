@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { TwitterLogo, VerifiedBadge } from "./twitter";
 import { TweetData } from "../types";
 import { FC } from "react";
@@ -12,13 +11,15 @@ export const TweetCard: FC<TweetCardProps> = ({ tweetData }) => {
     <div
       className="bg-white rounded-lg p-6 text-black relative shadow-lg"
       id="htmlToImageVis"
+      key={tweetData.data.author_id}
     >
       <div className="absolute top-6 right-6">
         <TwitterLogo />
       </div>
 
       <div className="flex items-center">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           alt="Profile Image"
           src={tweetData.includes.users[0].profile_image_url}
           width={56}
